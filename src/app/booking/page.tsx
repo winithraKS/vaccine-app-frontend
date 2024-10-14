@@ -20,7 +20,7 @@ export default async function Booking() {
 
     return (
         <div className='flex flex-row'>
-            <FormControl variant="standard" className='bg-sky-100 space-y-5 rounded-xl border-solid border-2 border-sky-400 min-w-80' sx={{ m: 2,p:3}}>
+            <FormControl variant="standard" className='bg-sky-100 space-y-5 rounded-xl border-solid border-2 border-sky-400 min-w-80' sx={{m: 2,p:3}}>
                 <TextField variant="standard" name="Name-Lastname" label="Name-Lastname"/> 
                 <TextField variant="standard" name="Citizen ID" label="Citizen ID" /> 
                 <FormControl sx={{ minWidth: 200 }}>
