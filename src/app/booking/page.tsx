@@ -1,10 +1,4 @@
 import * as React from 'react';
-import TextField from '@mui/material/TextField';
-import DateReserve from '@/components/DateReserve';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
 import getUserProfile from '@/libs/getUserProfile';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '../api/auth/[...nextauth]/authOptions';
@@ -14,7 +8,27 @@ import Form from '@/components/FormControl';
 export default async function Booking() {
     const session = await getServerSession(authOptions)
 
-    if(!session || !session.user.token) return (<Form/>)
+    if(!session || !session.user.token) return (
+        <div className='flex flex-row'>
+            <Form/>
+            <div className='flex flex-col m-5'>
+                <p className='m-3'>try sign-in with</p>
+                <table>
+                    <tbody>
+                        <tr><td className='min-w-28'>email :</td><td>test.user@hotmail.com</td></tr>
+                        <tr><td>password :</td><td>testUser</td></tr>
+                    </tbody>
+                </table>
+                <p className='m-3 mt-10'>or</p>
+                <table>
+                    <tbody>
+                        <tr><td className='min-w-32'>email :</td><td>alice@vaccinebooking.com</td></tr>
+                        <tr><td>password :</td><td>g00dH3@!th</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    )
 
     const profile = await getUserProfile(session.user.token)
     const createdAt = new Date(profile.data.createdAt)
