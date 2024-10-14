@@ -9,10 +9,12 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { useSession } from 'next-auth/react';
 import getUserProfile from '@/libs/getUserProfile';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '../api/auth/[...nextauth]/authOptions';
 
 
 export default async function Booking() {
-    const {data:session} = useSession();
+    const {data:session} = useSession()
 
     const [hospital, setHospital] = React.useState('');
 
